@@ -72,6 +72,20 @@
     **以下是一段精彩的关于domain的论述。**
     The definition of domain is many times vague and over-simplistic (e.g. “medical text” may be used for biomedical research papers and for clinical conversations between doctors and patients, although the two vary greatly in topic, formality etc.). A common definition treats a domain as a data source: “a domain is defined by a corpus from a specific source, and may differ from other domains in topic, genre, style, level of formality, etc.” (Koehn and Knowles, 2017). We claim that a more data-driven definition should take place, as different data sources may have sentences with similar traits and vice versa - a single massive web-crawled corpus contains texts in numerous styles, topics and registers. Our analysis in Section 2 shows examples for such cases, e.g. a sentence discussing “Viruses and virus-like organisms” in a legal corpus.
     
+* To Annotate or Not? Predicting Performance Drop under Domain Shift  [EMNLP 2019] [[__pdf__](https://www.aclweb.org/anthology/D19-1222.pdf)]  [[__code__](https://github.com/hadyelsahar/domain-shift-prediction)] 
+    - Motivation: Performance drop due to domain-shift is an endemic problem for NLP models in production. This problem creates an urge to continuously annotate evaluation datasets to measure the expected drop in the model performance which can be prohibitively expensive and slow.In this paper, we study the problem of predicting the performance drop of modern NLP models under domain-shift, in the absence of any target domain labels. We investigate three families of methods (H-divergence, reverse classification accuracy and confidence measures), show how they can be used to predict the performance drop and study their robustness to adversarial domain-shifts. 
+    - Contribution: 
+        1. We introduce a new task and methodology for directly predicting performance drop of a model under domain-shift, without the need of labeled examples from the target domain.
+        2. We survey, formalize and evaluate domain-shift detection metrics from 3 different families (§2) and propose new adaptations.
+        3. We benchmark each proposes metric on two tasks of different natures: document classification and sequence labeling (§3 and §4), and show their robustness under adversarial domain-shift scenarios.
+    - Approach: three families of methods (H-divergence, reverse classification accuracy and confidence measures)
+    - Experient: document classification and sequence labeling
+    - Conclusion: Our results on sentiment classification and sequence labelling show that our method is able to predict performance drops with an error rate as low as 2.15% and 0.89% for sentiment analysis and POS tagging respectively.
+    - Comment: 
+    本文的核心是预测domain shift带来的performance drop有多大。首先，domain shift会带来performance drop是毫无疑问的公认事实，本文的方法是做一个regression，来预测domian-shift detection metrics 和drop之间的关系。metrics有三种：H-divergence, reverse classification accuracy and confidence measures.
+    精彩论述, worth to refer：
+    有论据证明，即使一个模型在test data上效果很好，也会因为domain shift（比如vocab和style不同的问题），从而造成performance drop。It is well known that modern machine-learning models can be brittle, meaning that – even when achieving impressive performance on the evaluation set – their performance can degrade significantly when exposed to new examples with differences in vocabulary and writing style (Blitzer and Pereira, 2007; Jia and Liang, 2017; Brun and Nikoulina, 2018). 
+
 
 ## 20200804 first commit
 
